@@ -44,7 +44,7 @@ $(function() {
          * and that the name is not empty.
          */
 
-       it('has a name', function(){
+       it('has a name', function() {
          allFeeds.forEach(function(feed){
            expect(feed.name).toBeDefined();
            expect(feed.name.length).not.toBe(0);
@@ -54,18 +54,31 @@ $(function() {
 
 
     /* TODO: Write a new test suite named "The menu" */
+    describe('The menu', function(){
+      let menu = document.getElementsByTagName('body');
+      let menuIcon = document.getElementsByClassName('menu-icon-link')
 
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
+         it('hides the menu by default', function() {
+           expect(menu[0].classList.value).toBe('menu-hidden');
+         });
 
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+          it('toggles the menu when clicked', function(){
+            menuIcon[0].click();
+            expect(menu[0].classList.value).toBe('');
+            menuIcon[0].click();
+            expect(menu[0].classList.value).toBe('menu-hidden');
+          });
+        });
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
