@@ -55,7 +55,9 @@ $(function() {
 
   /* TODO: Write a new test suite named "The menu" */
   describe('The menu', function() {
+    //Store the body as menu so classes can be changed
     let menu = document.getElementsByTagName('body');
+    //Store the hamburger icon so it can be clicked
     let menuIcon = document.getElementsByClassName('menu-icon-link')
 
     /* TODO: Write a test that ensures the menu element is
@@ -73,8 +75,10 @@ $(function() {
      * clicked and does it hide when clicked again.
      */
     it('toggles the menu when clicked', function() {
+      //shows menu
       menuIcon[0].click();
       expect(menu[0].classList.value).toBe('');
+      //hides menu
       menuIcon[0].click();
       expect(menu[0].classList.value).toBe('menu-hidden');
     });
@@ -96,6 +100,7 @@ $(function() {
     });
 
     it('feeds are loaded', function(done) {
+      //Checks to make sure the feed has at least one element
       expect(document.getElementsByClassName('feed')[0].childElementCount).toBeGreaterThan(0);
       done();
     });
@@ -115,8 +120,10 @@ $(function() {
       });
     });
 
-    it('loads new feeds after changing', function() {
+    it('loads new feeds after changing', function(done) {
+      //Checks to make sure the feed has at least one element
       expect(document.getElementsByClassName('feed')[0].childElementCount).toBeGreaterThan(0);
+      done();
     });
   });
 });
