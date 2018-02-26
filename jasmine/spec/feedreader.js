@@ -96,7 +96,7 @@ $(function() {
     });
 
     it('feeds are loaded', function(done) {
-      expect(document.getElementsByClassName('feed')[0].childElementCount).not.toBeLessThan(1);
+      expect(document.getElementsByClassName('feed')[0].childElementCount).toBeGreaterThan(0);
       done();
     });
   });
@@ -116,7 +116,7 @@ $(function() {
     });
 
     it('loads new feeds after changing', function() {
-      expect(document.getElementsByClassName('feed')[0].childElementCount).not.toBeLessThan(1);
+      expect(document.getElementsByClassName('feed')[0].childElementCount).toBeGreaterThan(0);
     });
   });
 });
