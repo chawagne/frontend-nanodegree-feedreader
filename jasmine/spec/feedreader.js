@@ -35,7 +35,7 @@ $(function() {
       allFeeds.forEach(function(feed) {
         expect(feed.url).toBeDefined();
         expect(feed.url.length).not.toBe(0);
-      })
+      });
     });
 
 
@@ -58,7 +58,7 @@ $(function() {
     //Store the body as menu so classes can be changed
     let menu = document.getElementsByTagName('body');
     //Store the hamburger icon so it can be clicked
-    let menuIcon = document.getElementsByClassName('menu-icon-link')
+    let menuIcon = document.getElementsByClassName('menu-icon-link');
 
     /* TODO: Write a test that ensures the menu element is
      * hidden by default. You'll have to analyze the HTML and
