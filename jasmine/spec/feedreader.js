@@ -100,8 +100,8 @@ $(function() {
     });
 
     it('feeds are loaded', function(done) {
-      //Checks to make sure the feed has at least one element
-      expect(document.getElementsByClassName('feed')[0].childElementCount).toBeGreaterThan(0);
+      //Checks that an entry element exists and is a decendent of an element with the class 'feed'
+      expect(document.getElementsByClassName('entry')[0].parentElement.parentElement.classList.value).toBe('feed');
       done();
     });
   });
