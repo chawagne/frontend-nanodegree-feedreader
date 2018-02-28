@@ -108,21 +108,27 @@ $(function() {
 
   /* TODO: Write a new test suite named "New Feed Selection" */
   describe('New Feed Selection', function() {
-
+    let firstEntry = '';
 
     /* TODO: Write a test that ensures when a new feed is loaded
      * by the loadFeed function that the content actually changes.
      * Remember, loadFeed() is asynchronous.
      */
+
+    //loadFeed is called twice so the results can be compared.
     beforeEach(function(done) {
-      loadFeed(1, function() {
-        done();
+      loadFeed(0, function() {
+        //Stores the first entry of the feed to be comapred against later.
+        firstEntry = document.getElementsByClassName('entry')[0].children[0].innerHTML;
+        loadFeed(1, function() {
+          done();
+        });
       });
     });
 
     it('loads new feeds after changing', function(done) {
-      //Checks to make sure the feed has at least one element
-      expect(document.getElementsByClassName('feed')[0].childElementCount).toBeGreaterThan(0);
+      //Checks to make sure the first entry has a different name after changing feeds.
+      expect(document.getElementsByClassName('entry')[0].children[0].innerHTML).not.toBe(firstEntry);
       done();
     });
   });
