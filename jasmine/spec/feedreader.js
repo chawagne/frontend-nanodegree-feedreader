@@ -65,7 +65,7 @@ $(function() {
      * hiding/showing of the menu element.
      */
     it('hides the menu by default', function() {
-      expect(menu[0].classList.value).toBe('menu-hidden');
+      expect(menu[0].classList.value).toContain('menu-hidden');
     });
 
     /* This test ensures the menu changes
@@ -76,10 +76,10 @@ $(function() {
     it('toggles the menu when clicked', function() {
       //shows menu
       menuIcon[0].click();
-      expect(menu[0].classList.value).toBe('');
+      expect(menu[0].classList.value).not.toContain('menu-hidden');
       //hides menu
       menuIcon[0].click();
-      expect(menu[0].classList.value).toBe('menu-hidden');
+      expect(menu[0].classList.value).toContain('menu-hidden');
     });
   });
 
@@ -97,10 +97,9 @@ $(function() {
       });
     });
 
-    it('feeds are loaded', function(done) {
+    it('feeds are loaded', function() {
       //Checks that an entry element exists and is a decendent of an element with the class 'feed'
       expect(document.getElementsByClassName('entry')[0].parentElement.parentElement.classList.value).toBe('feed');
-      done();
     });
   });
 
