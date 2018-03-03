@@ -65,7 +65,7 @@ $(function() {
      * hiding/showing of the menu element.
      */
     it('hides the menu by default', function() {
-      expect(menu[0].classList.value).toContain('menu-hidden');
+      expect($(menu[0]).hasClass('menu-hidden')).toBe(true);
     });
 
     /* This test ensures the menu changes
@@ -76,10 +76,10 @@ $(function() {
     it('toggles the menu when clicked', function() {
       //shows menu
       menuIcon[0].click();
-      expect(menu[0].classList.value).not.toContain('menu-hidden');
+      expect($(menu[0]).hasClass('menu-hidden')).toBe(false);
       //hides menu
       menuIcon[0].click();
-      expect(menu[0].classList.value).toContain('menu-hidden');
+      expect($(menu[0]).hasClass('menu-hidden')).toBe(true);
     });
   });
 
